@@ -40,9 +40,11 @@ Define which command gets executed on startup.
 
 You can do this from scratch in your local environment, be sure to have Node and Docker installed on your machine with the following commands:
 
-`$ node -v`
-`$ yarn -v`
-`$ docker -v`
+```
+$ node -v
+$ yarn -v
+$ docker -v
+```
 
 Now you need to run the following command:
 
@@ -50,8 +52,10 @@ $ npx create-react-app react-sample --template typescript
 
 And you can start the app served in the port **:3000** with:
 
-`$ cd react-sample
-$ yarn start`
+```
+$ cd react-sample
+$ yarn start
+```
 
 ### `.dockerignore`
 
