@@ -1,38 +1,61 @@
 # Dockerizing a Simple React App
 
-This project dockerize a sample react project. You can see the original source here: [Create React App](https://github.com/facebook/create-react-app).
+This project dockerize a sample react project using the typescript template.
 
 ## How this work
 
-### `FROM`
+### `FROM node:16.10.0-alpine`
 
 We start with a node image based on alpine OS.
 
-### `WORKDIR`
+### `WORKDIR /app`
 
 Set the current directory from this point to be /app.
 
-### `COPY`
+### `COPY package.json ./`
 
-Copy the package.json & yarn.lock file inside the container image.
+Copy the package.json file inside the container image.
 
-### `RUN`
+### `RUN yarn install`
 
 Install dependencies using **yarn install.**
 
-### `COPY`
+### `COPY . .`
 
 Copy source code.
 
-### `EXPOSE`
+### `EXPOSE 3000`
 
 Inform docker which port the server will be exposed to.
 
-### `RUN`
+### `RUN yarn build`
 
 Production build which in react can be done by running yarn build and placing the output in a static web server such as an nginx if you want.
 
-### `CMD`
+### `CMD ["yarn", "start"]`
 
 Define which command gets executed on startup.
 
+## Do it yourself
+
+You can do this from scratch in your local environment, be sure to have Node and Docker installed on your machine with the following commands:
+
+`$ node -v
+$ yarn -v
+$ docker -v`
+
+Now you need to run the following command:
+
+$ npx create-react-app react-sample --template typescript
+
+And you can start the app served in the port **:3000** with:
+
+`$ cd react-sample
+$ yarn start`
+
+### `.dockerignore`
+
+After you do that, be sure to add a .dockerignore file to avoid adding our local dependencies inside the container image like the one I upload
+
+`#  .dockerignore
+node_modules/`
