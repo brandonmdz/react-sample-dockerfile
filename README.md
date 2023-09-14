@@ -40,9 +40,9 @@ Define which command gets executed on startup.
 
 You can do this from scratch in your local environment, be sure to have Node and Docker installed on your machine with the following commands:
 
-`$ node -v
-$ yarn -v
-$ docker -v`
+`$ node -v`
+`$ yarn -v`
+`$ docker -v`
 
 Now you need to run the following command:
 
@@ -55,7 +55,6 @@ $ yarn start`
 
 ### `.dockerignore`
 
-After you do that, be sure to add a .dockerignore file to avoid adding our local dependencies inside the container image like the one I upload
+Be sure to add a .dockerignore file to avoid adding our local dependencies inside the container image like the one I upload ignoring the following folder:
 
-`#  .dockerignore
-node_modules/`
+`node_modules/`
